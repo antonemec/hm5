@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers add</title>
+</head>
+<body>
+
+TEACHERS ADD:
+<form action="/teachers/add/" method="post">
+    {% csrf_token %}
+{{ form.as_p }}
+    <input name="submit" type="submit">
+</form>
+
+
+</body>
+</html>

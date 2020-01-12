@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from first_app.views import *
+from first_app.views import generate_student, students, students_add,\
+    generate_group, groups, groups_add,\
+    generate_teacher, teachers, teachers_add, index
 
 urlpatterns = [
     path('', index),

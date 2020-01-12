@@ -25,7 +25,9 @@ def students(request):
     # print("request.GET.get('first_name')")
     fn = request.GET.get('data')
     if fn:
-        queryset = queryset.filter(Q(first_name__startswith=fn) | Q(last_name__startswith=fn) | Q(email__startswith=fn))
+        queryset = queryset.filter(Q(first_name__startswith=fn) |
+                                   Q(last_name__startswith=fn) |
+                                   Q(email__startswith=fn))
     for student in queryset:
         response += student.get_all_info() + '<br> ______________ <br>'
         ''' quarks = quarks.filter(last_name__contains=fn)
@@ -80,7 +82,8 @@ def groups(request):
     # print("request.GET.get('group_name')")
     fn = request.GET.get('data')
     if fn:
-        queryset = queryset.filter(Q(group_name__startswith=fn) | Q(group_id__startswith=fn))
+        queryset = queryset.filter(Q(group_name__startswith=fn) |
+                                   Q(group_id__startswith=fn))
     for group in queryset:
         response += group.get_info() + '<br> ______________ <br><br>'
     # return HttpResponse(response)group_id
@@ -133,7 +136,9 @@ def teachers(request):
     # print("request.GET.get('first_name')")
     fn = request.GET.get('data')
     if fn:
-        queryset = queryset.filter(Q(first_name__startswith=fn) | Q(last_name__startswith=fn) | Q(email__startswith=fn))
+        queryset = queryset.filter(Q(first_name__startswith=fn) |
+                                   Q(last_name__startswith=fn) |
+                                   Q(email__startswith=fn))
     for teacher in queryset:
         response += teacher.get_info() + '<br> ______________ <br><br>'
     # return HttpResponse(response)
@@ -175,4 +180,3 @@ def index(request):
                   'index.html',
                   context={})
 # ----------------------------------------------------------------------------
-

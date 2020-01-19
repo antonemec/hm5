@@ -31,11 +31,11 @@ class Student(models.Model):
     @classmethod
     def generate_students(cls):
         fake = Faker()
-        student = cls(first_name=f'{fake.first_name()}',
-                      last_name=f'{fake.last_name()}',
-                      birth_date=f'{fake.date_of_birth(tzinfo=None, minimum_age=10, maximum_age=60)}',
-                      email=f'{fake.email()}',
-                      telephone=f'{fake.phone_number()}')
+        student = cls(first_name=fake.first_name(),
+                      last_name=fake.last_name(),
+                      birth_date=fake.date_of_birth(tzinfo=None, minimum_age=10, maximum_age=60),
+                      email=fake.email(),
+                      telephone=fake.phone_number())
         student.save()
         return student
 
@@ -58,7 +58,7 @@ class Group(models.Model):
         seria = ['AA', 'AB', 'BA', 'BB']
         gr_num = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '00']
         group = cls(group_name=f'{fake.first_name()} INC',
-                    description=f'{fake.text()}',
+                    description=fake.text()',
                     group_id=f'{random.choice(seria)+random.choice(gr_num)} - {random.choice(gr_num)}')
         group.save()
         return group
